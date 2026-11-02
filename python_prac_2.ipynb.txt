@@ -1,0 +1,147 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "9ae00340-7911-45a6-8af9-55a46f440313",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "shop_list = []"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "74a7e2f8-a38d-41d7-94fb-38a238ee0dfd",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "shop_list = [\"watch\", \"laptop\", \"shoes\", \"pen\", \"clothes\"]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "849ea9d7-90b0-4648-97d1-0d285bfde274",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "shop_list.append(\"football\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "a41a0144-b38e-4744-a576-2f7deb388f5d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Last Item: football\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"Last Item:\", shop_list[-1])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "791402ba-c5e5-49bb-a5e2-d1919ded5767",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Shopping list: ['watch', 'laptop', 'shoes', 'pen', 'clothes', 'football']\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"Shopping list:\", shop_list)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "9282d8f0-668b-4c97-a33f-d42c7a1121b5",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Important items : ['laptop', 'shoes']\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"Important items :\", shop_list[1:3]) "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "04f354a7-3f52-4ba4-9f62-c0ef589f5a95",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "shop_list[3] = \"notebook\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "4e7e0e73-9d48-4371-9708-b60ca732f67e",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "shop_list.remove(\"clothes\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "6dbee395-f38e-471d-910f-295d2e230eee",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Final Shopping list: ['watch', 'laptop', 'shoes', 'notebook', 'football']\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"Final Shopping list:\", shop_list)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [conda env:base] *",
+   "language": "python",
+   "name": "conda-base-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.9"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
