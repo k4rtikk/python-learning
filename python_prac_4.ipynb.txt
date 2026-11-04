@@ -1,0 +1,258 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "8145a9f0-ccf9-4ddb-a7a1-4168598dbfd2",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "does not have more than 10 achievements\n"
+     ]
+    }
+   ],
+   "source": [
+    "players = {\n",
+    "    \"Serena Williams\": {\"sport\": \"Tennis\", \"achievements\": 23},\n",
+    "    \"Lionel Messi\": {\"sport\": \"Soccer\", \"achievements\": 7},\n",
+    "    \"Michael Phelps\": {\"sport\": \"Swimming\", \"achievements\": 23},\n",
+    "    \"Usain Bolt\": {\"sport\": \"Athletics\", \"achievements\": 8},\n",
+    "    \"Roger Federer\": {\"sport\": \"Tennis\", \"achievements\": 20},\n",
+    "    \"Cristiano Ronaldo\": {\"sport\": \"Soccer\", \"achievements\": 5}\n",
+    "}\n",
+    "\n",
+    "player = \"Lionel Messi\"\n",
+    "data = players[player]\n",
+    "\n",
+    "if data[\"achievements\"] > 10:\n",
+    "    print(player, data[\"sport\"], data[\"achievements\"])\n",
+    "else:\n",
+    "    print(\"does not have more than 10 achievements\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "13221dc8-afb3-476c-b8b6-655a4f3749b8",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Success! Condition met.\n"
+     ]
+    }
+   ],
+   "source": [
+    "player = \"Roger Federer\"\n",
+    "data = players[player]\n",
+    "\n",
+    "if data[\"sport\"] == \"Tennis\" or data[\"achievements\"] == 20:\n",
+    "    print(\"Success! Condition met.\")\n",
+    "else:\n",
+    "    print(\"Condition not met.\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "9fa969d6-d54b-4140-9ace-e6a38074d68c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Usain Bolt Athletics 8\n"
+     ]
+    }
+   ],
+   "source": [
+    "player = \"Usain Bolt\"\n",
+    "data = players[player]\n",
+    "\n",
+    "if data[\"achievements\"] < 10 and data[\"sport\"] != \"Soccer\":\n",
+    "    print(player, data[\"sport\"], data[\"achievements\"])\n",
+    "else:\n",
+    "    print(\"Does not meet the criteria.\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "e0f6ec05-673a-4a76-ba4a-6dd07d39c8a0",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter an integer between 1 and 9999:  500\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "500 is even\n",
+      "500 is not a palindrome\n",
+      "500 is divisible by the sum of its digits (5)\n"
+     ]
+    }
+   ],
+   "source": [
+    "num = int(input(\"Enter an integer between 1 and 9999: \"))\n",
+    "\n",
+    "if num % 2 == 0:\n",
+    "    print(f\"{num} is even\")\n",
+    "else:\n",
+    "    print(f\"{num} is odd\")\n",
+    "\n",
+    "str_num = str(num)\n",
+    "if str_num == str_num[::-1]:\n",
+    "    print(f\"{num} is a palindrome\")\n",
+    "else:\n",
+    "    print(f\"{num} is not a palindrome\")\n",
+    "\n",
+    "digit_sum = sum(int(d) for d in str_num)\n",
+    "if num % digit_sum == 0:\n",
+    "    print(f\"{num} is divisible by the sum of its digits ({digit_sum})\")\n",
+    "else:\n",
+    "    print(f\"{num} is not divisible by the sum of its digits ({digit_sum})\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "fc06781b-eeb1-4ddb-9f33-f99aa64bdf49",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "-5\n",
+      "-4\n",
+      "-3\n",
+      "-2\n",
+      "-1\n",
+      "0\n",
+      "1\n",
+      "2\n",
+      "3\n",
+      "4\n",
+      "5\n"
+     ]
+    }
+   ],
+   "source": [
+    "for i in range(-5, 6):\n",
+    "    print(i)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "32ff4469-1961-4fc1-804b-a0d6c2e9d52f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "red\n",
+      "yellow\n",
+      "green\n",
+      "purple\n",
+      "blue\n"
+     ]
+    }
+   ],
+   "source": [
+    "squares = ['red', 'yellow', 'green', 'purple', 'blue']\n",
+    "\n",
+    "for color in squares:\n",
+    "    print(color)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "43089c12-8f0a-4ea3-b1aa-0d16b8c21979",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[]\n"
+     ]
+    }
+   ],
+   "source": [
+    "new_squares = []\n",
+    "i = 0\n",
+    "while i < len(squares):\n",
+    "    if squares[i] == 'orange':\n",
+    "        new_squares.append(squares[i])\n",
+    "        i += 1\n",
+    "    else:\n",
+    "        break\n",
+    "\n",
+    "print(new_squares)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "3f363a00-afa8-4814-a33d-e11ff0cac0b4",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['giraffe', 'gorilla', 'parrots']\n"
+     ]
+    }
+   ],
+   "source": [
+    "Animals = [\"lion\", \"giraffe\", \"gorilla\", \"parrots\", \"crocodile\", \"deer\", \"swan\"]\n",
+    "seven_letter_animals = []\n",
+    "\n",
+    "i = 0\n",
+    "while i < len(Animals):\n",
+    "    if len(Animals[i]) == 7:\n",
+    "        seven_letter_animals.append(Animals[i])\n",
+    "    i += 1\n",
+    "\n",
+    "print(seven_letter_animals)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [conda env:base] *",
+   "language": "python",
+   "name": "conda-base-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.9"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
