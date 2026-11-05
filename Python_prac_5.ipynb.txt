@@ -1,0 +1,174 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "b4832944-d327-4e02-ad06-a6b223d3b8a2",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter the numerator:  15\n",
+      "Enter the denominator:  0\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Error: Cannot divide by Zero\n",
+      "None\n"
+     ]
+    }
+   ],
+   "source": [
+    "def safe_divide(num, den):\n",
+    "    try:\n",
+    "        res = num / den\n",
+    "    except ZeroDivisionError as err:\n",
+    "        print(\"Error: Cannot divide by Zero\")\n",
+    "        res = None;\n",
+    "    finally:\n",
+    "        return res\n",
+    "\n",
+    "numerator = float(input(\"Enter the numerator: \"))\n",
+    "denominator = float(input(\"Enter the denominator: \"))\n",
+    "\n",
+    "print(safe_divide(numerator, denominator))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "44df5888-9a99-4017-9c07-3671d7ef1ab5",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "a04a7df6-6747-4184-8d94-6d35584e0828",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "54d23076-b6ef-44bd-afab-6c2ea25a90fa",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter a number:  -144\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Invalid input! Please enter a positive integer or a float value\n",
+      "None\n"
+     ]
+    }
+   ],
+   "source": [
+    "import math\n",
+    "\n",
+    "def square_root(number1):\n",
+    "    try:\n",
+    "        return math.sqrt(number1)\n",
+    "    except ValueError as err:\n",
+    "        print(\"Invalid input! Please enter a positive integer or a float value\")\n",
+    "\n",
+    "number1 = float(input(\"Enter a number: \"))\n",
+    "\n",
+    "print(square_root(number1))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "e3b89723-de98-43f3-baf0-5a91e63135b4",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "7c0d68e0-2cbb-4a22-845b-791e2bd30ef0",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "a160c5a4-dd2b-4235-9957-86801d35ee75",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter a number:  5\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "An error occurred during calculation.\n",
+      "None\n"
+     ]
+    }
+   ],
+   "source": [
+    "def complex_math(num):\n",
+    "    try:\n",
+    "        result = num / (num - 5)\n",
+    "        return result\n",
+    "    except Exception as e:\n",
+    "        print(\"An error occurred during calculation.\")\n",
+    "\n",
+    "num = float(input(\"Enter a number: \"))\n",
+    "print(complex_math(num))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "702db214-0edd-49f3-933b-285195188b82",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [conda env:base] *",
+   "language": "python",
+   "name": "conda-base-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.9"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
