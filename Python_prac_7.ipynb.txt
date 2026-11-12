@@ -1,0 +1,202 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "ed0a4759-6a62-4440-b6a7-95071cbea925",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Magic Methods"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "8ea4f8c7-b025-463e-ae81-94655d508492",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Point(2, 3)\n"
+     ]
+    }
+   ],
+   "source": [
+    "class Point:\n",
+    "    def __init__(self, x, y):\n",
+    "        self.x = x\n",
+    "        self.y = y\n",
+    "\n",
+    "    def __repr__(self):\n",
+    "        return f\"Point({self.x}, {self.y})\"\n",
+    "\n",
+    "p1 = Point(2, 3)\n",
+    "print(p1) "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "e16004d3-45e6-4444-bec4-4b686310c8cc",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "00dd36df-3381-4f5c-997c-6e8ad2379f4f",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Inheritance"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "b8060842-40bd-446c-9077-e2955c6cb46d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Rex\n"
+     ]
+    }
+   ],
+   "source": [
+    "class Animal:\n",
+    "    def __init__(self, name):\n",
+    "        self.name = name\n",
+    "\n",
+    "    def speak(self):\n",
+    "        print(self.name)\n",
+    "\n",
+    "class Dog(Animal):\n",
+    "    pass\n",
+    "\n",
+    "d1 = Dog(\"Rex\")\n",
+    "d1.speak() "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "aa106cd0-2725-4485-a3a8-7e2ae4a1a764",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "f38a4752-538a-4fbb-8f26-39264156fe67",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Polymorphism"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "f6dc1c6f-5ff9-489d-83ff-c46e8510ba62",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Meow\n",
+      "Wa-pa-pa-pa-pa-pow!\n"
+     ]
+    }
+   ],
+   "source": [
+    "class Cat:\n",
+    "    def sound(self):\n",
+    "        print(\"Meow\")\n",
+    "\n",
+    "class Fox:\n",
+    "    def sound(self):\n",
+    "        print(\"Wa-pa-pa-pa-pa-pow!\")\n",
+    "\n",
+    "c1 = Cat()\n",
+    "f1 = Fox()\n",
+    "\n",
+    "c1.sound()  \n",
+    "f1.sound() "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "bd50a245-d160-4b49-b90e-9fd0b4796d89",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "3c18e414-51ef-4340-9cc6-c04c18018ac0",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Encapsulation"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "74b99266-b5f3-464a-b9f6-1f1ae84e80ab",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0\n"
+     ]
+    }
+   ],
+   "source": [
+    "class ScoreBoard:\n",
+    "    def __init__(self, score):\n",
+    "        self.__score = score\n",
+    "\n",
+    "    def get_score(self):\n",
+    "        return self.__score\n",
+    "\n",
+    "s1 = ScoreBoard(0)\n",
+    "print(s1.get_score()) "
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [conda env:base] *",
+   "language": "python",
+   "name": "conda-base-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.9"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
