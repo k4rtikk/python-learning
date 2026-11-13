@@ -1,0 +1,111 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "c53007b0",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def zip_two(a, b):\n",
+    "    out = []\n",
+    "    for i in range(max(len(a), len(b))):\n",
+    "        if i < len(a):\n",
+    "            out.append(a[i])\n",
+    "        if i < len(b):\n",
+    "            out.append(b[i])\n",
+    "    return \"\".join(out)\n",
+    "\n",
+    "\n",
+    "def zipper_file(filename, strings):\n",
+    "    with open(filename, \"w\") as f:\n",
+    "        for i in range(0, len(strings), 2):\n",
+    "            f.write(zip_two(strings[i], strings[i + 1]) + \"\\n\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "4dd738ad",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "a1b2c3\n",
+      "xWyXYZ\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "zipper_file(\"zipper_out.txt\", [\"abc\", \"123\", \"xy\", \"WXYZ\"])\n",
+    "print(open(\"zipper_out.txt\").read())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "cfeac841",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "MONTHS = [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\", \"July\",\n",
+    "          \"August\", \"September\", \"October\", \"November\", \"December\"]\n",
+    "\n",
+    "\n",
+    "def reformat_date(dates):\n",
+    "    result = []\n",
+    "    for d in dates:\n",
+    "        mm, dd, yyyy = d.split(\"/\")\n",
+    "        result.append(f\"Office Hours on {MONTHS[int(mm) - 1]} {dd}, {yyyy}\")\n",
+    "    return result"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "2c3ff192",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['Office Hours on January 05, 2024',\n",
+       " 'Office Hours on December 31, 2023',\n",
+       " 'Office Hours on July 04, 1999']"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "reformat_date([\"01/05/2024\", \"12/31/2023\", \"07/04/1999\"])"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [conda env:base] *",
+   "language": "python",
+   "name": "conda-base-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.9"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
