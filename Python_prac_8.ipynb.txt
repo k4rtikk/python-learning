@@ -1,0 +1,289 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "1be658b5-2f93-4b61-8c11-02eb35c507c4",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "import numpy as np"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "69e48000-72fa-4710-95dc-67b8a50d52fb",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Problem 1: DataFrame\n",
+      "  Student  Age Country            Course  Marks\n",
+      "0   David   27      UK            Python     85\n",
+      "1  Samuel   24  Canada   Data Structures     72\n",
+      "2   Terry   22   China  Machine Learning     89\n",
+      "3    Evan   32     USA   Web Development     76\n"
+     ]
+    }
+   ],
+   "source": [
+    "data = {\n",
+    "    \"Student\": [\"David\", \"Samuel\", \"Terry\", \"Evan\"],\n",
+    "    \"Age\": [27, 24, 22, 32],\n",
+    "    \"Country\": [\"UK\", \"Canada\", \"China\", \"USA\"],\n",
+    "    \"Course\": [\"Python\", \"Data Structures\", \"Machine Learning\", \"Web Development\"],\n",
+    "    \"Marks\": [85, 72, 89, 76],\n",
+    "}\n",
+    "df = pd.DataFrame(data)\n",
+    "print(\"Problem 1: DataFrame\")\n",
+    "print(df)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "63a1d119-124e-4421-b6a8-32839b6045f1",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Problem 2: Marks column (b)\n",
+      "0    85\n",
+      "1    72\n",
+      "2    89\n",
+      "3    76\n",
+      "Name: Marks, dtype: int64\n"
+     ]
+    }
+   ],
+   "source": [
+    "b = df[\"Marks\"]\n",
+    "print(\"Problem 2: Marks column (b)\")\n",
+    "print(b)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "8d619d6f-4874-47cd-890f-0067cdb530f2",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "c = df[[\"Country\", \"Course\"]]\n",
+    "print(\"Problem 3: Country and Course columns (c)\")\n",
+    "print(c, \"\\n\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "87f506a8-ff03-48bf-91ec-fc874f497c1a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Problem 4: First 5 rows\n",
+      "   Customer_ID    Name   Age  Gender  Purchase_Amount\n",
+      "0          101    Amit  25.0    Male           1500.0\n",
+      "1          102   Priya  34.0  Female           2300.0\n",
+      "2          103   Rahul  45.0    Male           1800.0\n",
+      "3          104   Sneha  29.0  Female           2700.0\n",
+      "4          105  Vikram  38.0    Male           3200.0 \n",
+      "\n",
+      "Summary statistics\n",
+      "       Customer_ID        Age  Purchase_Amount\n",
+      "count     10.00000   9.000000         9.000000\n",
+      "mean     105.50000  32.444444      2188.888889\n",
+      "std        3.02765   7.682954       541.858940\n",
+      "min      101.00000  22.000000      1500.000000\n",
+      "25%      103.25000  27.000000      1800.000000\n",
+      "50%      105.50000  31.000000      2100.000000\n",
+      "75%      107.75000  38.000000      2500.000000\n",
+      "max      110.00000  45.000000      3200.000000 \n",
+      "\n",
+      "Missing values per column (before handling)\n",
+      "Customer_ID        0\n",
+      "Name               0\n",
+      "Age                1\n",
+      "Gender             0\n",
+      "Purchase_Amount    1\n",
+      "dtype: int64 \n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "customers = {\n",
+    "    \"Customer_ID\": [101, 102, 103, 104, 105, 106, 107, 108, 109, 110],\n",
+    "    \"Name\": [\"Amit\", \"Priya\", \"Rahul\", \"Sneha\", \"Vikram\",\n",
+    "             \"Anjali\", \"Rohan\", \"Neha\", \"Karan\", \"Pooja\"],\n",
+    "    \"Age\": [25, 34, 45, 29, 38, 31, 22, np.nan, 41, 27],\n",
+    "    \"Gender\": [\"Male\", \"Female\", \"Male\", \"Female\", \"Male\",\n",
+    "               \"Female\", \"Male\", \"Female\", \"Male\", \"Female\"],\n",
+    "    \"Purchase_Amount\": [1500, 2300, 1800, 2700, 3200,\n",
+    "                        2100, np.nan, 1900, 2500, 1700],\n",
+    "}\n",
+    "cust = pd.DataFrame(customers)\n",
+    " \n",
+    "print(\"Problem 4: First 5 rows\")\n",
+    "print(cust.head(), \"\\n\")\n",
+    " \n",
+    "print(\"Summary statistics\")\n",
+    "print(cust.describe(), \"\\n\")\n",
+    " \n",
+    "print(\"Missing values per column (before handling)\")\n",
+    "print(cust.isnull().sum(), \"\\n\")\n",
+    "\n",
+    "cust[\"Age\"] = cust[\"Age\"].fillna(cust[\"Age\"].median())\n",
+    "cust[\"Purchase_Amount\"] = cust[\"Purchase_Amount\"].fillna(cust[\"Purchase_Amount\"].median())\n",
+    " \n",
+    "print(\"Missing values per column (after handling)\")\n",
+    "print(cust.isnull().sum(), \"\\n\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "e1d3af60-0487-41ea-86ae-c0a22d8fbef4",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Problem 5: Customers with Age > 30\n",
+      "   Customer_ID    Name   Age  Gender  Purchase_Amount\n",
+      "1          102   Priya  34.0  Female           2300.0\n",
+      "2          103   Rahul  45.0    Male           1800.0\n",
+      "4          105  Vikram  38.0    Male           3200.0\n",
+      "5          106  Anjali  31.0  Female           2100.0\n",
+      "8          109   Karan  41.0    Male           2500.0 \n",
+      "\n",
+      "Total Purchase_Amount by Gender\n",
+      "Gender\n",
+      "Female    10700.0\n",
+      "Male       9000.0\n",
+      "Name: Purchase_Amount, dtype: float64 \n",
+      "\n",
+      "Customer_ID, Name, Purchase_Amount only\n",
+      "   Customer_ID    Name  Purchase_Amount\n",
+      "0          101    Amit           1500.0\n",
+      "1          102   Priya           2300.0\n",
+      "2          103   Rahul           1800.0\n",
+      "3          104   Sneha           2700.0\n",
+      "4          105  Vikram           3200.0\n",
+      "5          106  Anjali           2100.0\n",
+      "6          107   Rohan              NaN\n",
+      "7          108    Neha           1900.0\n",
+      "8          109   Karan           2500.0\n",
+      "9          110   Pooja           1700.0 \n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"Problem 5: Customers with Age > 30\")\n",
+    "print(cust[cust[\"Age\"] > 30], \"\\n\")\n",
+    " \n",
+    "print(\"Total Purchase_Amount by Gender\")\n",
+    "print(cust.groupby(\"Gender\")[\"Purchase_Amount\"].sum(), \"\\n\")\n",
+    " \n",
+    "print(\"Customer_ID, Name, Purchase_Amount only\")\n",
+    "print(cust[[\"Customer_ID\", \"Name\", \"Purchase_Amount\"]], \"\\n\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "184b8d8e-e881-4e2e-aafd-8a1b478d1f06",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Problem 6: With Discounted_Price column\n",
+      "   Customer_ID    Name   Age  Gender  Purchase_Amount  Discounted_Price\n",
+      "0          101    Amit  25.0    Male           1500.0            1350.0\n",
+      "1          102   Priya  34.0  Female           2300.0            2070.0\n",
+      "2          103   Rahul  45.0    Male           1800.0            1620.0\n",
+      "3          104   Sneha  29.0  Female           2700.0            2430.0\n",
+      "4          105  Vikram  38.0    Male           3200.0            2880.0\n",
+      "5          106  Anjali  31.0  Female           2100.0            1890.0\n",
+      "6          107   Rohan  22.0    Male              NaN               NaN\n",
+      "7          108    Neha   NaN  Female           1900.0            1710.0\n",
+      "8          109   Karan  41.0    Male           2500.0            2250.0\n",
+      "9          110   Pooja  27.0  Female           1700.0            1530.0 \n",
+      "\n",
+      "Average Purchase_Amount by Gender\n",
+      "Gender\n",
+      "Female    2140.0\n",
+      "Male      2250.0\n",
+      "Name: Purchase_Amount, dtype: float64 \n",
+      "\n",
+      "Sorted by Purchase_Amount (descending)\n",
+      "   Customer_ID    Name   Age  Gender  Purchase_Amount  Discounted_Price\n",
+      "4          105  Vikram  38.0    Male           3200.0            2880.0\n",
+      "3          104   Sneha  29.0  Female           2700.0            2430.0\n",
+      "8          109   Karan  41.0    Male           2500.0            2250.0\n",
+      "1          102   Priya  34.0  Female           2300.0            2070.0\n",
+      "5          106  Anjali  31.0  Female           2100.0            1890.0\n",
+      "7          108    Neha   NaN  Female           1900.0            1710.0\n",
+      "2          103   Rahul  45.0    Male           1800.0            1620.0\n",
+      "9          110   Pooja  27.0  Female           1700.0            1530.0\n",
+      "0          101    Amit  25.0    Male           1500.0            1350.0\n",
+      "6          107   Rohan  22.0    Male              NaN               NaN\n"
+     ]
+    }
+   ],
+   "source": [
+    "cust[\"Discounted_Price\"] = cust[\"Purchase_Amount\"] * 0.90\n",
+    "print(\"Problem 6: With Discounted_Price column\")\n",
+    "print(cust, \"\\n\")\n",
+    " \n",
+    "print(\"Average Purchase_Amount by Gender\")\n",
+    "print(cust.groupby(\"Gender\")[\"Purchase_Amount\"].mean(), \"\\n\")\n",
+    " \n",
+    "print(\"Sorted by Purchase_Amount (descending)\")\n",
+    "print(cust.sort_values(by=\"Purchase_Amount\", ascending=False))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "66fd30b0-5463-42fc-9d10-05b0d392ae62",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [conda env:base] *",
+   "language": "python",
+   "name": "conda-base-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.9"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
